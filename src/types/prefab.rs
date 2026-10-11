@@ -1,10 +1,10 @@
-use super::{image::Image, object::Object};
+use super::{ids::PrefabId, image::Image, object::Object};
 use crate::{Read, Write, error::Error};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct Prefab {
-    pub prefab_id: i32,
+    pub prefab_id: PrefabId,
     pub prefab_image_data: Image,
     pub items: Vec<Object>,
 }

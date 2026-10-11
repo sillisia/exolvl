@@ -6,6 +6,9 @@ use crate::types::{
     dynamic_type::DynamicType,
     exolvl::Exolvl,
     function_call::{CallParameter, FunctionCall},
+    ids::{
+        BrushId, EntityId, LayerId, ParameterId, PatternId, PrefabId, ScriptId, TileId, VariableId,
+    },
     image::Image,
     layer::Layer,
     level_data::LevelData,
@@ -84,6 +87,15 @@ impl_sealed!(
     Uuid,
     Theme,
     OrderedFloat<f32>,
+    EntityId,
+    TileId,
+    PrefabId,
+    PatternId,
+    BrushId,
+    LayerId,
+    ScriptId,
+    VariableId,
+    ParameterId,
 );
 
 #[cfg(feature = "image")]

@@ -1,10 +1,10 @@
-use super::image::Image;
+use super::{ids::PatternId, image::Image};
 use crate::{Read, Write, error::Error};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct Pattern {
-    pub pattern_id: i32,
+    pub pattern_id: PatternId,
     pub pattern_frames: Vec<Image>,
 }
 

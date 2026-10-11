@@ -1,10 +1,10 @@
 use super::{nova_value::NovaValue, static_type::StaticType};
-use crate::{Read, Write, error::Error};
+use crate::{Read, Write, error::Error, types::ids::ParameterId};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Parameter {
-    pub parameter_id: i32,
+    pub parameter_id: ParameterId,
     pub name: String,
     pub static_type: StaticType,
     pub default_value: NovaValue,

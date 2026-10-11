@@ -1,6 +1,7 @@
 use super::{
     brush::Brush,
     color::Color,
+    ids::{PatternId, TileId},
     layer::Layer,
     novascript::{NovaScript, variable::Variable},
     object::Object,
@@ -29,17 +30,17 @@ pub struct LevelData {
     /// This Field is presumably only useful in .level files, not in .exolvl ones. A mismatch with the corresponding `LocalLevel` field should be avoided.
     pub nova_level: bool,
     /// The tile ids for the "under decoration" layer.
-    pub under_decoration_tiles: Vec<i32>,
+    pub under_decoration_tiles: Vec<TileId>,
     /// The tile ids for the "background decoration" layer.
-    pub background_decoration_tiles: Vec<i32>,
+    pub background_decoration_tiles: Vec<TileId>,
     /// The tile ids for the terrain layer.
-    pub terrain_tiles: Vec<i32>,
+    pub terrain_tiles: Vec<TileId>,
     /// The tile ids for the floating zone layer.
-    pub floating_zone_tiles: Vec<i32>,
+    pub floating_zone_tiles: Vec<TileId>,
     /// The tile ids for the "object" layer.
-    pub object_tiles: Vec<i32>,
+    pub object_tiles: Vec<TileId>,
     /// The tile ids for the "foreground decoration" layer.
-    pub foreground_decoration_tiles: Vec<i32>,
+    pub foreground_decoration_tiles: Vec<TileId>,
     /// The objects in the level.
     pub objects: Vec<Object>,
     /// The layers in the level.
@@ -92,7 +93,7 @@ pub struct LevelData {
     /// The following terrain related fields are all used when explicitly copying certain terrain data.
     ///
     /// The custom terrain pattern that can be pasted with the `color_paste` button if the recieving object has the `FillMode` set to `Pattern`.
-    pub custom_terrain_pattern_id: i32,
+    pub custom_terrain_pattern_id: PatternId,
     /// The tiling of that pattern.
     pub custom_terrain_pattern_tiling: Vec2,
     /// the offset of that pattern.

@@ -1,11 +1,11 @@
-use super::vec2::Vec2;
+use super::{ids::LayerId, vec2::Vec2};
 use crate::{Read, Write, error::Error};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 #[allow(clippy::struct_excessive_bools)]
 pub struct Layer {
-    pub layer_id: i32,
+    pub layer_id: LayerId,
     pub layer_name: String,
     pub selected: bool,
     pub invisible: bool,

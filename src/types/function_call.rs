@@ -1,4 +1,4 @@
-use crate::{Read, Write, error::Error};
+use crate::{Read, Write, error::Error, types::ids::ParameterId};
 
 use super::novascript::nova_value::NovaValue;
 
@@ -28,7 +28,7 @@ impl Write for FunctionCall {
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct CallParameter {
-    pub parameter_id: i32,
+    pub parameter_id: ParameterId,
     pub value: NovaValue,
 }
 

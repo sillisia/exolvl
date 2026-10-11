@@ -5,6 +5,7 @@ pub mod color;
 pub mod dynamic_type;
 pub mod exolvl;
 pub mod function_call;
+pub mod ids;
 pub mod image;
 pub mod layer;
 pub mod level_data;

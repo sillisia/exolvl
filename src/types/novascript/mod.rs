@@ -1,4 +1,4 @@
-use crate::{Read, Write, error::Error};
+use crate::{Read, Write, error::Error, types::ids::ScriptId};
 use action::Action;
 use activator::Activator;
 use nova_value::NovaValue;
@@ -15,7 +15,7 @@ pub mod variable;
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct NovaScript {
-    pub script_id: i32,
+    pub script_id: ScriptId,
     pub script_name: String,
     pub is_function: bool,
     pub activation_count: i32,

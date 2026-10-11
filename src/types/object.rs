@@ -1,21 +1,25 @@
 use ordered_float::OrderedFloat;
 
-use super::{object_property::ObjectProperty, vec2::Vec2};
+use super::{
+    ids::{EntityId, LayerId, PrefabId, TileId},
+    object_property::ObjectProperty,
+    vec2::Vec2,
+};
 use crate::{Read, Write, error::Error};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Object {
-    pub entity_id: i32,
-    pub tile_id: i32,
-    pub prefab_entity_id: i32,
-    pub prefab_id: i32,
+    pub entity_id: EntityId,
+    pub tile_id: TileId,
+    pub prefab_entity_id: EntityId,
+    pub prefab_id: PrefabId,
     pub position: Vec2,
     pub scale: Vec2,
     pub rotation: OrderedFloat<f32>,
     pub tag: String,
     pub properties: Vec<ObjectProperty>,
-    pub in_layer: i32,
+    pub in_layer: LayerId,
     pub in_group: i32,
     pub group_members: Vec<i32>,
 }

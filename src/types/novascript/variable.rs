@@ -1,10 +1,10 @@
 use super::{nova_value::NovaValue, static_type::StaticType};
-use crate::{Read, Write, error::Error};
+use crate::{Read, Write, error::Error, types::ids::VariableId};
 
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Variable {
-    pub variable_id: i32,
+    pub variable_id: VariableId,
     pub name: String,
     pub static_type: StaticType,
     /// Unknown data, new in serialization version 23.
