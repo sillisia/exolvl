@@ -1,16 +1,17 @@
 use crate::{Read, Write, error::Error};
 
 macro_rules! define_dynamic_type {
-    ($($name:ident = $number:expr),*) => {
+    ($($(#[$attr:meta])* $name:ident = $number:expr),*) => {
         #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
         #[derive(Clone, Copy, Debug,   Hash, PartialEq, Eq, PartialOrd, Ord)]
         pub enum DynamicType {
-            $($name,)*
+            $($(#[$attr])* $name,)*
             /// a dynamic type that this library does not know yet, the number is kept
             /// as it was read so the value is written back unchanged
             Unknown(i32),
         }
 
+        #[allow(deprecated)]
         impl TryFrom<i32> for DynamicType {
             type Error = ();
 
@@ -22,6 +23,7 @@ macro_rules! define_dynamic_type {
             }
         }
 
+        #[allow(deprecated)]
         impl From<&DynamicType> for i32 {
             fn from(value: &DynamicType) -> Self {
                 match value {
@@ -202,7 +204,9 @@ define_dynamic_type!(
     ScriptParameter = 165,
     BoolObjectsCollidingWithPoint = 166,
     FloatRoundDecimals = 167,
+    #[deprecated(note = "use `DynamicType::VectorPointerPosition` instead")]
     VectorPointerPositionDeprecated = 168,
+    #[deprecated(note = "use `DynamicType::VectorPointerWorldPosition` instead")]
     VectorPointerWorldPositionDeprecated = 169,
     VectorCollisionPoint = 170,
     VectorCollisionNormal = 171,
