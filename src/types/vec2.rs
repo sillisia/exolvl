@@ -27,3 +27,20 @@ impl Write for Vec2 {
         self.y.write(output)
     }
 }
+
+#[cfg(feature = "glam")]
+impl From<glam::Vec2> for Vec2 {
+    fn from(value: glam::Vec2) -> Self {
+        Self {
+            x: OrderedFloat(value.x),
+            y: OrderedFloat(value.y),
+        }
+    }
+}
+
+#[cfg(feature = "glam")]
+impl From<Vec2> for glam::Vec2 {
+    fn from(value: Vec2) -> Self {
+        Self::new(value.x.0, value.y.0)
+    }
+}

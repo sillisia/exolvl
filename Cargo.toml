@@ -15,6 +15,7 @@ exclude = [".github/*"]
 chrono = "0.4.44"
 cs-datetime-parse = "1.1.0"
 flate2 = "1.1.9"
+glam = { version = "0.34.1", optional = true }
 image = { version = "0.25.9", optional = true }
 leb128 = "0.2.5"
 ordered-float = "5.1.0"
@@ -39,6 +40,7 @@ serde = [
     "time/serde",
     "uuid/serde",
 ]
+glam = ["dep:glam"]
 image = ["dep:image"]
 tracing = ["dep:tracing"]
 
