@@ -11,6 +11,7 @@ use super::{
 };
 use crate::{Read, ReadVersioned, Write, error::Error};
 use ordered_float::OrderedFloat;
+use time::Duration;
 use uuid::Uuid;
 
 /// The level data for an Exoracer level.
@@ -53,14 +54,14 @@ pub struct LevelData {
     ///
     /// This is only present in levels with version 17 or higher.
     pub color_palette: Option<Vec<Color>>,
-    /// The author medal time for this level in milliseconds.
-    pub author_time: i64,
-    /// The author medal lap times for this level in milliseconds.
-    pub author_lap_times: Vec<i64>,
-    /// The silver medal time for this level in milliseconds.
-    pub silver_medal_time: i64,
-    /// The gold medal time for this level in milliseconds.
-    pub gold_medal_time: i64,
+    /// The author medal time for this level.
+    pub author_time: Duration,
+    /// The author medal lap times for this level.
+    pub author_lap_times: Vec<Duration>,
+    /// The silver medal time for this level.
+    pub silver_medal_time: Duration,
+    /// The gold medal time for this level.
+    pub gold_medal_time: Duration,
     /// The number of laps in this level.
     pub laps: i32,
     /// Whether the camera should be centered while playing this level.

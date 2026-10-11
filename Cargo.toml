@@ -32,7 +32,13 @@ concat-idents = "1.1.5"
 difference = "2.0.0"
 
 [features]
-serde = ["dep:serde", "chrono/serde", "ordered-float/serde", "uuid/serde"]
+serde = [
+    "dep:serde",
+    "chrono/serde",
+    "ordered-float/serde",
+    "time/serde",
+    "uuid/serde",
+]
 image = ["dep:image"]
 tracing = ["dep:tracing"]
 

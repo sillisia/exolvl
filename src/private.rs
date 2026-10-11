@@ -46,6 +46,7 @@ impl_sealed!(
     u32,
     i32,
     i64,
+    time::Duration,
     f32,
     bool,
     u8,

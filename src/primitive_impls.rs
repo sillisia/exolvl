@@ -84,6 +84,20 @@ impl Write for i64 {
     }
 }
 
+impl Read for time::Duration {
+    fn read(input: &mut impl std::io::Read) -> Result<Self, Error> {
+        Ok(Self::milliseconds(i64::read(input)?))
+    }
+}
+
+impl Write for time::Duration {
+    fn write(&self, output: &mut impl std::io::Write) -> Result<(), Error> {
+        i64::try_from(self.whole_milliseconds())
+            .unwrap()
+            .write(output)
+    }
+}
+
 impl Read for f32 {
     fn read(input: &mut impl std::io::Read) -> Result<Self, Error> {
         let mut bytes = [0; 4];
