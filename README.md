@@ -5,7 +5,7 @@
 A library for reading and writing Exoracer level files.
 
 ## Todo
-
+-   [ ] Support all script types, functions, and actions
 -   [ ] More documentation (see <https://github.com/skycloudd/exolvl/issues/1>)
 -   [x] Implement the `Default` trait for `Exolvl` (?)
 -   [x] Use the `image` crate for images
